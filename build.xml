@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="opentdc-app-sample" basedir=".">
+
+	<property environment="env"/>
+	<property name="java.build.platform" value="jre-1.7" />
+
+	<target name="clean" description="Cleans this project">
+		<delete dir="${build.dir}" failonerror="false" />
+	</target>
+
+	<target name="assemble" description="build assemblies">
+		<!-- opentdc-app-sample.war -->
+		<zip destfile="../${java.build.platform}/app-sample/deployment-unit/opentdc-app-sample.war">
+			<zipfileset dir="src/war/app-sample.war" />
+			<zipfileset dir="../${java.build.platform}/app-generic/lib/" includes="*.jar" prefix="WEB-INF/lib" />
+			<zipfileset dir="../opt/google/${java.build.platform}/gson/lib/" includes="*.jar" prefix="WEB-INF/lib" />
+			<zipfileset dir="../opt/jayway/${java.build.platform}/jsonpath/lib/" includes="*.jar" prefix="WEB-INF/lib" />
+		</zip>
+	</target>
+
+</project>
