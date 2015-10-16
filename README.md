@@ -26,16 +26,24 @@ the app with the URL http://localhost:8080/opentdc-app-sample/.
 
 ## Architecture
 
-The following figure gives an overview of the architecture of the app
+The following figure gives an overview of the architecture of the app:
 
+![](https://github.com/opentdc/app-sample/blob/master/architecture-1.png)
 
-* The backend of the app is implemented as a Java servlet, namely as JSP
-  (./Api.jsp). The JSP approach allows on-the-fly compiling of the backend and 
-  allows ultra-fast and flexible development roundtrips. There is no need for 
-  recompiling Java classes, etc.
-* The backend implements the API of the app as REST/JSON service. Therefore it 
+### Service
+
+* The service implements the API of the app as REST/JSON service. It
   offers all methods required by the Javascript GUI (in this case ./index.html).
-* Objects are stored in JSON-format as files in the webapp directory /data. Files
-  can be created, updated and removed manually as required. The file-based
-  StoreManager is quite fault-tolerant. IMPORTANT: DO NOT USE the file-based 
-  StoreManager in production.  
+* The service is implemented as a Java servlet, namely as JSP (./Api.jsp). The 
+  JSP approach allows on-the-fly compiling of the backend and allows ultra-fast 
+  and flexible development roundtrips.
+
+### GUI
+The GUI is a standard webapp. It communicates with the service over REST/JSON.
+
+### Backend
+
+The backend can be any database or application service (ERP, CRM, CM, DM, etc.).
+The service-tier delegates to the backend in order to store and retrieve data
+and execute business-logic. The project app-generic offers a very simple file-based StoreManager which allows to store objects as JSON-formatted files.
+
