@@ -35,8 +35,42 @@ The following figure gives an overview of the architecture of the sample app:
 * The service implements the API of the app as REST/JSON service. It
   offers all methods required by the Javascript GUI (in this case ./index.html).
 * The service is implemented as a Java servlet, namely as JSP (./Api.jsp). The 
-  JSP approach allows on-the-fly compiling of the backend and allows ultra-fast 
-  and flexible development roundtrips.
+  JSP approach allows on-the-fly compiling and allows ultra-fast and flexible 
+  development roundtrips.
+  
+The service implementation Api.jsp has the following layout:
+
+	Api.jsp:
+	
+	   <%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+	   <%!
+	
+	      // ContactModel bean
+	      public static class ContactModel {
+	         ...
+	      }
+			
+	      public static ContactModel getContact(request, path) {
+	         // delegate to backend
+	      }
+			
+	      public static ContactModel createContact(request, path) {
+	         // delegate to backend
+	      }
+			
+	      public static ContactModel updateContact(request, path) {
+	         // delegate to backend
+	      }
+			
+	      public static List<ContactModel> findContacts(request, path, query) {
+	         // delegate to backend
+	      }
+
+	   %>
+	   <%
+	   	* dispatch request and invoke methods
+	   	* return result as JSON response 
+	   %>
 
 ### GUI
 The GUI is a standard webapp. It communicates with the service over REST/JSON.
