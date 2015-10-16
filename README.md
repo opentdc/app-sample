@@ -26,7 +26,7 @@ the app with the URL http://localhost:8080/opentdc-app-sample/.
 
 ## Architecture
 
-The following figure gives an overview of the architecture of the app:
+The following figure gives an overview of the architecture of the sample app:
 
 ![](https://github.com/opentdc/app-sample/blob/master/architecture-1.png)
 
@@ -43,7 +43,24 @@ The GUI is a standard webapp. It communicates with the service over REST/JSON.
 
 ### Backend
 
-The backend can be any database or application service (ERP, CRM, CM, DM, etc.).
-The service-tier delegates to the backend in order to store and retrieve data
-and execute business-logic. The project app-generic offers a very simple file-based StoreManager which allows to store objects as JSON-formatted files.
+* The backend can be any database or application service (ERP, CRM, CM, DM, etc.).
+  The service-tier delegates to the backend in order to store and retrieve data
+  and execute business-logic. 
+* The project app-generic offers a very simple file-based StoreManager which allows to
+  store objects as JSON-formatted files. This allows to quickly build prototypes
+  and proof-of-concepts. 
 
+## WebApp Layout
+
+The file layout of the webapp looks as follows:
+
+		opentdc-app-sample
+		   + WEB-INF
+		     + web.xml
+		   + index.html
+		   + Api.jsp
+		   + js
+		   	+ bootstrap
+		   	+ jquery
+		   	
+Of course, instead of bootstrap any other webapp framework can be used (Polymer, AngularJ, ...).
