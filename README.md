@@ -75,8 +75,8 @@ The service implementation Api.jsp has the following layout:
 ### GUI
 The GUI is a standard webapp. It communicates with the service over REST/JSON.
 
-Below is the screenshot of the sample app which invoke allows to get, update and
-create contacts using the APIs <code>provider/{pid}/segment/{sid}/contact/{cid}</code>
+Below is the screenshot of the sample app which allows to get, update and create
+contacts using the APIs <code>provider/{pid}/segment/{sid}/contact/{cid}</code>
 and <code>provider/{pid}/segment/{sid}/contact</code>.
 
 ![](https://github.com/opentdc/app-sample/blob/master/architecture-2.png)
