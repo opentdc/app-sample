@@ -24,7 +24,10 @@ Copy the opentdc-app-sample.war manually to the webapps directory of Tomcat and 
 the app with the URL http://localhost:8080/opentdc-app-sample/.
 
 
-## Principles
+## Architecture
+
+The following figure gives an overview of the architecture of the app
+
 
 * The backend of the app is implemented as a Java servlet, namely as JSP
   (./Api.jsp). The JSP approach allows on-the-fly compiling of the backend and 
